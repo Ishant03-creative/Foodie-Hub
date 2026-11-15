@@ -1,0 +1,19 @@
+{
+    "name": "Foodie Hub - Intelligent Indian Food & Nutrition Platform",
+    "short_name": "Foodie Hub",
+    "theme_color": "#71933e",
+    "background_color": "#8fae73",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "img/favicon192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "img/favicon512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}

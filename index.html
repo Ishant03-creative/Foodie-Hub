@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Foodie Hub - Intelligent Indian food recommendation platform. Discover authentic North and South Indian regional meals tailored to your taste and verified by certified dietitians."
+    />
+    <link rel="icon" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <title>Foodie Hub &mdash; Intelligent Indian Food & Nutrition Platform</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans for clean modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- TheMealDB API Service Module -->
+    <script src="JS/api.js" defer></script>
+
+    <!-- Main JavaScript -->
+    <script src="JS/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Decorative Floating Nature Elements (Edges) -->
+    <div class="bg-leaf bg-leaf--top-right" aria-hidden="true">
+      <svg viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M120 10C90 40 40 90 20 160C80 140 130 90 150 40C155 25 140 10 120 10Z" fill="#5c7a36" fill-opacity="0.35"/>
+        <path d="M140 30C100 65 65 125 45 190C105 165 145 110 160 55C163 40 152 25 140 30Z" fill="#71933e" fill-opacity="0.45"/>
+        <path d="M90 70C60 105 30 160 10 220C60 190 100 135 120 85C125 72 105 60 90 70Z" fill="#88af4c" fill-opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="bg-leaf bg-leaf--bottom-left" aria-hidden="true">
+      <svg viewBox="0 0 180 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 190C65 150 110 100 170 60C120 90 60 140 30 180C22 192 30 200 40 190Z" fill="#5c7a36" fill-opacity="0.25"/>
+        <circle cx="50" cy="120" r="32" fill="#7ba342" fill-opacity="0.2"/>
+        <circle cx="50" cy="120" r="24" stroke="#8cb54e" stroke-width="2" stroke-opacity="0.3" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- MAIN APP WRAPPER (Rounded Light-Green Aesthetic Card) -->
+    <div class="app-card">
+      <!-- HEADER / NAVBAR -->
+      <header class="navbar" id="navbar">
+        <a href="#home" class="nav-logo" aria-label="Foodie Hub Home">
+          <span class="logo-icon-wrap">
+            <ion-icon name="leaf" class="logo-leaf-icon"></ion-icon>
+          </span>
+          <span class="logo-text">Foodie<span class="logo-accent">Hub</span></span>
+        </a>
+
+        <nav class="nav-links-wrap" id="navLinksWrap">
+          <ul class="nav-list">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#recipes" class="nav-link">Explore Recipes</a></li>
+            <li><a href="#shop" class="nav-link">Shop</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <!-- Real-Time Search Bar -->
+          <div class="nav-search-bar" role="search">
+            <input
+              type="text"
+              id="menuSearchInput"
+              class="search-input"
+              placeholder="Search Indian dishes, macros..."
+              aria-label="Search dishes"
+            />
+            <button class="btn-search-icon" aria-label="Submit search">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+          </div>
+
+          <!-- Shopping Cart Trigger -->
+          <button class="nav-btn-cart" id="btnCartTrigger" aria-label="Open shopping cart">
+            <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+            <span class="cart-badge" id="cartBadge">2</span>
+          </button>
+
+          <!-- Mobile Nav Toggle -->
+          <button class="btn-mobile-menu" id="btnMobileNav" aria-label="Toggle Navigation">
+            <ion-icon name="menu-outline" class="icon-menu-open"></ion-icon>
+            <ion-icon name="close-outline" class="icon-menu-close"></ion-icon>
+          </button>
+        </div>
+      </header>
+
+      <!-- 1. HERO SECTION (Matches Reference Mockup) -->
+      <section class="section-hero" id="home">
+        <div class="hero-grid">
+          <!-- HERO LEFT: COPY & ORDER AREA -->
+          <div class="hero-left">
+            <p class="hero-eyebrow">Eat Fresh, Live Fresh</p>
+            <h1 class="hero-headline">
+              Nature's <span class="highlight">Color</span><br />
+              On Your <span class="highlight">Plate</span>
+            </h1>
+            <p class="hero-subtext">
+              Natural foods are minimally processed and free of artificial additives like colors, flavors, and preservatives.
+            </p>
+
+            <div class="hero-action-area">
+              <button class="btn-order-now" id="btnHeroOrder">
+                <span>Order Now</span>
+                <ion-icon name="sparkles-outline"></ion-icon>
+              </button>
+              <div class="hero-price-tag">
+                <span class="price-val">₹349</span>
+                <span class="price-note">/ meal box</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- HERO RIGHT: CIRCULAR DISH & GLASSMORPHISM STATS CARD -->
+          <div class="hero-right">
+            <!-- Bamboo branch graphics in corner -->
+            <div class="bamboo-graphic" aria-hidden="true">
+              <svg viewBox="0 0 240 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Stalks -->
+                <path d="M180 260C185 200 190 120 185 0" stroke="#4a6627" stroke-width="4" stroke-linecap="round"/>
+                <path d="M220 260C225 180 230 110 220 20" stroke="#5a7a32" stroke-width="3" stroke-linecap="round"/>
+                <!-- Leaves -->
+                <path d="M185 100C150 90 100 120 80 140C110 135 155 125 185 100Z" fill="#698b37"/>
+                <path d="M186 140C140 140 90 180 70 210C105 195 155 175 186 140Z" fill="#759c3e"/>
+                <path d="M187 60C155 45 120 60 100 80C130 80 160 70 187 60Z" fill="#88b348"/>
+                <path d="M222 130C190 120 150 140 130 160C160 155 195 145 222 130Z" fill="#698b37"/>
+                <path d="M220 80C190 70 160 85 145 105C170 100 200 90 220 80Z" fill="#759c3e"/>
+              </svg>
+            </div>
+
+            <div class="hero-dish-container">
+              <!-- Thin graphic ring with 4 cardinal indicator nodes -->
+              <div class="dish-ring">
+                <span class="ring-node ring-node--top"></span>
+                <span class="ring-node ring-node--right"></span>
+                <span class="ring-node ring-node--bottom"></span>
+                <span class="ring-node ring-node--left"></span>
+              </div>
+
+              <!-- Main Circular Hero Food Image -->
+              <div class="hero-image-wrap">
+                <img
+                  src="img/meals/meal-2.jpg"
+                  alt="Colorful fresh vegetable bowl with avocado, tomatoes, greens, and beans"
+                  class="hero-dish-img"
+                  id="heroMainDishImg"
+                />
+              </div>
+
+              <!-- Floating Glassmorphic Nutritional Stats Card (Reference Mockup) -->
+              <div class="floating-nutrition-card" id="heroNutritionCard">
+                <div class="card-line-connector" aria-hidden="true"></div>
+                <div class="nutrition-stat-item">
+                  <span class="stat-value">700kcal</span>
+                  <span class="stat-label">Calories</span>
+                </div>
+                <div class="nutrition-stat-item">
+                  <span class="stat-value">15g</span>
+                  <span class="stat-label">Protein</span>
+                </div>
+                <div class="nutrition-stat-item">
+                  <span class="stat-value">30g</span>
+                  <span class="stat-label">Fats</span>
+                </div>
+                <div class="nutrition-stat-item">
+                  <span class="stat-value">35g</span>
+                  <span class="stat-label">Fiber</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO BOTTOM: ROW OF 3 MINIMALIST MEAL CARDS (Indian Selections) -->
+        <div class="hero-bottom-meals" id="heroBottomMeals">
+          <!-- Card 1: Paneer Tikka Masala ₹320 -->
+          <div class="bottom-meal-card" data-id="paneer-tikka-masala">
+            <div class="bottom-card-main">
+              <div class="bottom-card-thumb-wrap">
+                <img
+                  src="img/meals/meal-1.jpg"
+                  alt="Paneer Tikka Masala"
+                  class="bottom-card-thumb"
+                />
+              </div>
+              <div class="bottom-card-title-price">
+                <h4 class="bottom-dish-title">Paneer Tikka</h4>
+                <p class="bottom-dish-price">₹320</p>
+                <button
+                  class="btn-card-quick-add"
+                  data-id="paneer-tikka-masala"
+                  title="Add to cart"
+                  aria-label="Add Paneer Tikka Masala to cart"
+                >
+                  <ion-icon name="add-outline"></ion-icon>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+            <!-- Vertical Nutritional Info -->
+            <div class="bottom-card-nutrition">
+              <div class="nutrition-bracket-line"></div>
+              <div class="bottom-nutri-col">
+                <div class="nutri-row">
+                  <span class="n-val">480kcal</span>
+                  <span class="n-lbl">Calories</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">24g</span>
+                  <span class="n-lbl">Protein</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">32g</span>
+                  <span class="n-lbl">Fats</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">6g</span>
+                  <span class="n-lbl">Fiber</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Kerala Fish Curry ₹380 -->
+          <div class="bottom-meal-card" data-id="kerala-fish-curry">
+            <div class="bottom-card-main">
+              <div class="bottom-card-thumb-wrap">
+                <img
+                  src="img/meals/meal-5.jpg"
+                  alt="Kerala Coconut Fish Curry"
+                  class="bottom-card-thumb"
+                />
+              </div>
+              <div class="bottom-card-title-price">
+                <h4 class="bottom-dish-title">Kerala Fish Curry</h4>
+                <p class="bottom-dish-price">₹380</p>
+                <button
+                  class="btn-card-quick-add"
+                  data-id="kerala-fish-curry"
+                  title="Add to cart"
+                  aria-label="Add Kerala Coconut Fish Curry to cart"
+                >
+                  <ion-icon name="add-outline"></ion-icon>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+            <!-- Vertical Nutritional Info -->
+            <div class="bottom-card-nutrition">
+              <div class="nutrition-bracket-line"></div>
+              <div class="bottom-nutri-col">
+                <div class="nutri-row">
+                  <span class="n-val">460kcal</span>
+                  <span class="n-lbl">Calories</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">38g</span>
+                  <span class="n-lbl">Protein</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">28g</span>
+                  <span class="n-lbl">Fats</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">5g</span>
+                  <span class="n-lbl">Fiber</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Crispy Masala Dosa ₹220 -->
+          <div class="bottom-meal-card" data-id="masala-dosa">
+            <div class="bottom-card-main">
+              <div class="bottom-card-thumb-wrap">
+                <img
+                  src="img/meals/meal-4.jpg"
+                  alt="Crispy Masala Dosa"
+                  class="bottom-card-thumb"
+                />
+              </div>
+              <div class="bottom-card-title-price">
+                <h4 class="bottom-dish-title">Masala Dosa</h4>
+                <p class="bottom-dish-price">₹220</p>
+                <button
+                  class="btn-card-quick-add"
+                  data-id="masala-dosa"
+                  title="Add to cart"
+                  aria-label="Add Masala Dosa to cart"
+                >
+                  <ion-icon name="add-outline"></ion-icon>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+            <!-- Vertical Nutritional Info -->
+            <div class="bottom-card-nutrition">
+              <div class="nutrition-bracket-line"></div>
+              <div class="bottom-nutri-col">
+                <div class="nutri-row">
+                  <span class="n-val">380kcal</span>
+                  <span class="n-lbl">Calories</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">12g</span>
+                  <span class="n-lbl">Protein</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">10g</span>
+                  <span class="n-lbl">Fats</span>
+                </div>
+                <div class="nutri-row">
+                  <span class="n-val">9g</span>
+                  <span class="n-lbl">Fiber</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. INTERACTIVE MENU & INDIAN NUTRITION SECTION -->
+      <section class="section-menu" id="menu">
+        <div class="section-header center-text">
+          <span class="subheading-pill">Curated Indian Regional Plates</span>
+          <h2 class="section-title">
+            Explore Our <span class="highlight">Dietitian-Approved</span> Indian Menu
+          </h2>
+          <p class="section-subtitle">
+            Every dish is clinically analyzed with verified macro profiles for Calories, Protein, Carbohydrates, and Fats. Filter by cuisine region, high-protein content, or calorie limits.
+          </p>
+        </div>
+
+        <!-- Nutrition & Regional Filters -->
+        <div class="menu-filter-bar">
+          <button class="btn-filter active" data-filter="all">All Dishes</button>
+          <button class="btn-filter" data-filter="north-indian">
+            <ion-icon name="restaurant-outline"></ion-icon> North Indian
+          </button>
+          <button class="btn-filter" data-filter="south-indian">
+            <ion-icon name="compass-outline"></ion-icon> South Indian
+          </button>
+          <button class="btn-filter" data-filter="high-protein">
+            <ion-icon name="fitness-outline"></ion-icon> High Protein (&gt;20g)
+          </button>
+          <button class="btn-filter" data-filter="low-calorie">
+            <ion-icon name="flame-outline"></ion-icon> Low Calorie (&le;500kcal)
+          </button>
+          <button class="btn-filter" data-filter="vegetarian">
+            <ion-icon name="leaf-outline"></ion-icon> Vegetarian / Vegan
+          </button>
+          <button class="btn-filter" data-filter="dietitian-pick">
+            <ion-icon name="ribbon-outline"></ion-icon> Dietitian Approved
+          </button>
+        </div>
+
+        <!-- Active Filter Indicator & Dish Count -->
+        <div class="menu-status-bar">
+          <span id="menuResultsCount">Showing all dishes</span>
+          <button class="btn-clear-filters hidden" id="btnClearFilters">
+            <ion-icon name="refresh-outline"></ion-icon> Reset Filters
+          </button>
+        </div>
+
+        <!-- Grid of 10 Indian Meals Populated Dynamically via JS -->
+        <div class="meals-catalog-grid" id="mealsCatalogGrid">
+          <!-- Populated by JS renderMeals() -->
+        </div>
+      </section>
+
+      <!-- 3. ABOUT SECTION & CERTIFIED DIETITIAN INTEGRATION -->
+      <section class="section-about" id="about">
+        <div class="about-grid">
+          <div class="about-text-col">
+            <span class="subheading-pill">Why Foodie Hub?</span>
+            <h2 class="section-title">
+              Where Intelligent AI Meets <span class="highlight">Clinical Indian Nutrition</span>
+            </h2>
+            <p class="about-lead">
+              We bridge the gap between artificial intelligence and human medical trust. At Foodie Hub, all AI recommendations, portion calculations, and authentic Indian regional recipes are rigorously cross-verified by licensed Registered Dietitians (RDs) before appearing on your plate.
+            </p>
+
+            <div class="about-features-list">
+              <div class="about-feature-item">
+                <div class="feat-icon-box">
+                  <ion-icon name="hardware-chip-outline"></ion-icon>
+                </div>
+                <div class="feat-content">
+                  <h4>Intelligent Macro Matching</h4>
+                  <p>Our recommendation engine maps your daily metabolic activity, glycemic targets, and dietary restrictions to build balanced regional Indian meal splits.</p>
+                </div>
+              </div>
+
+              <div class="about-feature-item">
+                <div class="feat-icon-box">
+                  <ion-icon name="medkit-outline"></ion-icon>
+                </div>
+                <div class="feat-content">
+                  <h4>100% Dietitian Verified</h4>
+                  <p>Every single recipe, cold-pressed oil proportion, sodium ratio, and macro profile is clinically audited and signed off by certified Registered Dietitians.</p>
+                </div>
+              </div>
+
+              <div class="about-feature-item">
+                <div class="feat-icon-box">
+                  <ion-icon name="earth-outline"></ion-icon>
+                </div>
+                <div class="feat-content">
+                  <h4>Pure Spices & Zero Additives</h4>
+                  <p>100% natural stone-ground spices, cold-pressed mustard and coconut oils, non-GMO pulses, and zero artificial coloring or chemical preservatives.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dietitian Trust Spotlight Card -->
+          <div class="about-card-col">
+            <div class="dietitian-spotlight-card">
+              <div class="dietitian-badge-ribbon">
+                <ion-icon name="shield-checkmark"></ion-icon>
+                <span>Dietitian Approved</span>
+              </div>
+              <div class="dietitian-avatar-wrap">
+                <img
+                  src="img/customers/hannah.jpg"
+                  alt="Certified Clinical Dietitian Dr. Ananya Sharma"
+                  class="dietitian-avatar"
+                />
+              </div>
+              <h3 class="dietitian-name">Dr. Ananya Sharma, MS, RD</h3>
+              <p class="dietitian-title">Lead Clinical Nutritionist & Ayurvedic Researcher</p>
+              <div class="dietitian-quote">
+                &ldquo;Indian regional cuisine is inherently medicinal&mdash;from turmeric curcumin and fenugreek seeds to fermented probiotics in dosas. Foodie Hub's AI preserves that culinary heritage while keeping your exact macros clinically optimized.&rdquo;
+              </div>
+              <div class="dietitian-stats-row">
+                <div class="d-stat">
+                  <span class="d-val">50+</span>
+                  <span class="d-lbl">Certified Dietitians</span>
+                </div>
+                <div class="d-stat">
+                  <span class="d-val">100%</span>
+                  <span class="d-lbl">Clinically Audited</span>
+                </div>
+                <div class="d-stat">
+                  <span class="d-val">4.9 &starf;</span>
+                  <span class="d-lbl">Dietitian Rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. EXPLORE RECIPES SECTION (TheMealDB Live API Integration) -->
+      <section class="section-recipes" id="recipes">
+        <div class="section-header center-text">
+          <span class="subheading-pill">TheMealDB Live Integration</span>
+          <h2 class="section-title">
+            Explore <span class="highlight">Global Recipes</span>
+          </h2>
+          <p class="section-subtitle">
+            Search thousands of worldwide dishes or browse by category. Click any recipe card for ingredients, measurements, step-by-step instructions, and YouTube tutorials.
+          </p>
+          <div class="api-attribution-tag">
+            <ion-icon name="globe-outline"></ion-icon>
+            <span>Recipe data powered by <strong>TheMealDB</strong></span>
+          </div>
+        </div>
+
+        <!-- Recipe Search & Action Controls -->
+        <div class="recipe-api-controls-wrap">
+          <form class="recipe-api-search-form" id="recipeApiSearchForm">
+            <div class="recipe-input-wrapper">
+              <ion-icon name="search-outline" class="input-search-icon"></ion-icon>
+              <input
+                type="text"
+                id="recipeApiSearchInput"
+                class="recipe-api-search-input"
+                placeholder="Search worldwide recipes (e.g. Chicken, Biryani, Pasta, Curry, Salmon)..."
+                autocomplete="off"
+              />
+              <button type="button" class="btn-clear-recipe-search hidden" id="btnClearRecipeSearch" title="Clear search">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </button>
+            </div>
+            <button type="submit" class="btn-recipe-api-search" id="btnRecipeApiSearch">
+              <ion-icon name="search"></ion-icon>
+              <span>Search</span>
+            </button>
+            <button type="button" class="btn-recipe-api-random" id="btnRecipeApiRandom" title="Discover a random surprise recipe">
+              <ion-icon name="dice-outline"></ion-icon>
+              <span>Surprise Me</span>
+            </button>
+          </form>
+
+          <!-- Category Browsing Scroller -->
+          <div class="recipe-categories-bar">
+            <span class="categories-label"><ion-icon name="filter-outline"></ion-icon> Categories:</span>
+            <div class="recipe-categories-scroller" id="recipeCategoriesScroller">
+              <!-- Dynamically populated via TheMealDB getMealCategories() with "All" active by default -->
+              <button class="btn-recipe-cat active" data-category="All">All Categories</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status & Results States -->
+        <div class="recipe-api-status-area">
+          <!-- Loading State -->
+          <div class="recipe-api-state recipe-api-loading hidden" id="recipeApiLoading">
+            <div class="recipe-spinner"></div>
+            <p>Fetching delicious recipes from TheMealDB...</p>
+          </div>
+
+          <!-- Error State -->
+          <div class="recipe-api-state recipe-api-error hidden" id="recipeApiError">
+            <ion-icon name="cloud-offline-outline"></ion-icon>
+            <h4>Unable to connect to TheMealDB</h4>
+            <p id="recipeApiErrorMessage">Please check your internet connection and try again.</p>
+            <button type="button" class="btn-recipe-retry" id="btnRecipeRetry">
+              <ion-icon name="refresh-outline"></ion-icon>
+              <span>Retry Request</span>
+            </button>
+          </div>
+
+          <!-- Empty State -->
+          <div class="recipe-api-state recipe-api-empty hidden" id="recipeApiEmpty">
+            <ion-icon name="restaurant-outline"></ion-icon>
+            <h4>No recipes found</h4>
+            <p id="recipeApiEmptyMessage">We couldn't find any recipes matching your query. Try searching for &ldquo;Chicken&rdquo;, &ldquo;Pasta&rdquo;, &ldquo;Curry&rdquo;, or select a category above!</p>
+          </div>
+        </div>
+
+        <!-- Dynamic TheMealDB Recipe Cards Grid -->
+        <div class="explore-recipes-grid" id="exploreRecipesGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Cook Kits Showcase (Preserves existing meal kits) -->
+        <div class="cook-kits-divider">
+          <div class="cook-kits-header center-text">
+            <span class="subheading-pill">Chef & Dietitian Cook Kits</span>
+            <h3 class="cook-kits-title">Prefer Ready-to-Cook Regional Kits?</h3>
+            <p class="cook-kits-subtitle">
+              Pre-portioned organic ingredients, fresh ground masala packets, and step-by-step dietitian cooking cards delivered right to your door.
+            </p>
+          </div>
+
+          <div class="recipes-grid">
+            <!-- Recipe Kit 1 -->
+            <article class="recipe-kit-card">
+              <div class="recipe-media">
+                <img src="img/meals/meal-2.jpg" alt="High-Protein Chana Masala Kit" />
+                <span class="recipe-tag">Ready in 15 min</span>
+              </div>
+              <div class="recipe-content">
+                <h3>High-Protein Chana Masala Kit</h3>
+                <p>Pre-soaked organic Kabuli chickpeas with roasted cumin and dry mango masala blend.</p>
+                <div class="recipe-meta">
+                  <span><strong>420</strong> kcal</span>
+                  <span><strong>22g</strong> Protein</span>
+                  <button class="btn-recipe-kit" data-id="chana-masala">Order Kit</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Recipe Kit 2 -->
+            <article class="recipe-kit-card">
+              <div class="recipe-media">
+                <img src="img/meals/meal-3.jpg" alt="Palak Paneer Supergreens Kit" />
+                <span class="recipe-tag">Ready in 20 min</span>
+              </div>
+              <div class="recipe-content">
+                <h3>Palak Paneer Supergreens Kit</h3>
+                <p>Fresh blanched spinach puree, farm cottage cheese, and cold-pressed mustard oil.</p>
+                <div class="recipe-meta">
+                  <span><strong>410</strong> kcal</span>
+                  <span><strong>20g</strong> Protein</span>
+                  <button class="btn-recipe-kit" data-id="palak-paneer">Order Kit</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Recipe Kit 3 -->
+            <article class="recipe-kit-card">
+              <div class="recipe-media">
+                <img src="img/meals/meal-9.jpg" alt="Ayurvedic Moong Dal Khichdi Kit" />
+                <span class="recipe-tag">Ready in 15 min</span>
+              </div>
+              <div class="recipe-content">
+                <h3>Moong Dal & Turmeric Kadhi Kit</h3>
+                <p>A2 ghee tadka, yellow split moong, hing, and probiotic probiotic kadhi concentrate.</p>
+                <div class="recipe-meta">
+                  <span><strong>360</strong> kcal</span>
+                  <span><strong>16g</strong> Protein</span>
+                  <button class="btn-recipe-kit" data-id="moong-dal-khichdi">Order Kit</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SHOP / SUBSCRIPTION PLANS SECTION -->
+      <section class="section-shop" id="shop">
+        <div class="section-header center-text">
+          <span class="subheading-pill">Flexible Subscriptions</span>
+          <h2 class="section-title">
+            Simple Plans For <span class="highlight">Every Health Goal</span>
+          </h2>
+          <p class="section-subtitle">
+            Skip, pause, or swap dishes anytime with single-tap controls in your dashboard.
+          </p>
+        </div>
+
+        <div class="pricing-plans-grid">
+          <!-- Starter Plan -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <span class="plan-type">Essential Discovery</span>
+              <div class="plan-price-wrap">
+                <span class="currency">₹</span>
+                <span class="price-val">1,499</span>
+                <span class="frequency">/ week</span>
+              </div>
+              <p class="plan-desc">Perfect for busy professionals seeking 4 dietitian-crafted Indian dinners per week.</p>
+            </div>
+            <ul class="plan-perks-list">
+              <li><ion-icon name="checkmark-circle"></ion-icon> 4 Fresh chef-prepared meals</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> AI smart macro recommendations</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Free insulated zero-waste delivery</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Weekly dietitian review of chosen meals</li>
+            </ul>
+            <button class="btn-plan-select" data-plan="Essential Discovery (₹1,499/wk)">Choose Essential</button>
+          </div>
+
+          <!-- Featured Plan (Premium Plan with requested perks) -->
+          <div class="plan-card plan-card--featured">
+            <div class="plan-badge-highlight">Most Popular</div>
+            <div class="plan-header">
+              <span class="plan-type">Total Performance</span>
+              <div class="plan-price-wrap">
+                <span class="currency">₹</span>
+                <span class="price-val">2,499</span>
+                <span class="frequency">/ week</span>
+              </div>
+              <p class="plan-desc">Our flagship plan for total nutritional optimization with Indian cuisine.</p>
+            </div>
+            <ul class="plan-perks-list">
+              <li><ion-icon name="checkmark-circle"></ion-icon> 8 Personalized daily meals</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> 24/7 AI Meal Discovery Chatbot</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Monthly 1-on-1 dietitian review</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Priority regional Indian recipe kit access</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Free express insulated drop-off</li>
+            </ul>
+            <button class="btn-plan-select btn-plan-select--featured" data-plan="Total Performance (₹2,499/wk)">Choose Performance</button>
+          </div>
+
+          <!-- Family Plan -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <span class="plan-type">Family Table</span>
+              <div class="plan-price-wrap">
+                <span class="currency">₹</span>
+                <span class="price-val">3,999</span>
+                <span class="frequency">/ week</span>
+              </div>
+              <p class="plan-desc">Wholesome multi-portion authentic Indian dishes designed to nourish the entire household.</p>
+            </div>
+            <ul class="plan-perks-list">
+              <li><ion-icon name="checkmark-circle"></ion-icon> 14 Balanced multi-portion plates</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Mild spice & kid-friendly options</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Dedicated clinical dietitian contact</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Weekend thali party specials</li>
+            </ul>
+            <button class="btn-plan-select" data-plan="Family Table (₹3,999/wk)">Choose Family</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. CUSTOMER TESTIMONIALS -->
+      <section class="section-testimonials">
+        <div class="section-header center-text">
+          <span class="subheading-pill">Trusted By 25,000+ Eaters</span>
+          <h2 class="section-title">
+            Real Stories, Real <span class="highlight">Nutritional Wins</span>
+          </h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="t-stars">
+              <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+            </div>
+            <p class="t-text">
+              &ldquo;As someone balancing a gym routine and a love for Punjabi food, the Tandoori Soya Chaap and Paneer Tikka Masala deliver 40g+ protein without the heavy greasy feeling of typical takeout.&rdquo;
+            </p>
+            <div class="t-author">
+              <img src="img/customers/dave.jpg" alt="Dave" class="t-author-img" />
+              <div>
+                <h5>Rohit V.</h5>
+                <span>Lost 14 lbs in 8 Weeks</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="t-stars">
+              <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+            </div>
+            <p class="t-text">
+              &ldquo;The Kerala Fish Curry and fermented Masala Dosa give me authentic South Indian coastal flavors with verified low-glycemic carbs audited by Dr. Sharma. Foodie Hub AI is a game-changer!&rdquo;
+            </p>
+            <div class="t-author">
+              <img src="img/customers/ben.jpg" alt="Ben" class="t-author-img" />
+              <div>
+                <h5>Priya M.</h5>
+                <span>Marathon Runner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="t-stars">
+              <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+            </div>
+            <p class="t-text">
+              &ldquo;The AI assistant instantly recommends dishes under 450 calories that suit my vegetarian diet. Knowing each dish has a verified dietitian stamp gives me 100% peace of mind.&rdquo;
+            </p>
+            <div class="t-author">
+              <img src="img/customers/steve.jpg" alt="Steve" class="t-author-img" />
+              <div>
+                <h5>Karan S.</h5>
+                <span>Tech Lead & Father</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. CONTACT & DIETITIAN CONSULT SECTION -->
+      <section class="section-contact" id="contact">
+        <div class="contact-box-grid">
+          <div class="contact-info-col">
+            <span class="subheading-pill">Direct Clinical Access</span>
+            <h2 class="section-title">
+              Have Questions? Speak to Our <span class="highlight">Dietitian Desk</span>
+            </h2>
+            <p class="contact-desc">
+              Whether you need personalized guidance on managing diabetes with Indian cuisine or adjusting macros for athletic training, our licensed dietitians are here to help.
+            </p>
+
+            <div class="contact-details-list">
+              <div class="contact-item">
+                <ion-icon name="mail-outline"></ion-icon>
+                <div>
+                  <strong>Email Clinical Team</strong>
+                  <a href="mailto:dietitians@foodiehub.ai">dietitians@foodiehub.ai</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <ion-icon name="call-outline"></ion-icon>
+                <div>
+                  <strong>Toll-Free Hotline</strong>
+                  <span>1-800-FOODIE-HUB (Mon-Sat 8am-8pm)</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <ion-icon name="location-outline"></ion-icon>
+                <div>
+                  <strong>Kitchen & Clinical HQ</strong>
+                  <span>Fresh Harvest Way, Organic Valley Suite 400</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-col">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="contactName">Your Name</label>
+                  <input type="text" id="contactName" placeholder="Aarav Patel" required />
+                </div>
+                <div class="form-group">
+                  <label for="contactEmail">Email Address</label>
+                  <input type="email" id="contactEmail" placeholder="aarav@example.com" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactTopic">Inquiry Category</label>
+                <select id="contactTopic">
+                  <option value="dietitian">Personalized Dietitian Review</option>
+                  <option value="allergy">Food Allergies / Celiac / Dairy-Free</option>
+                  <option value="macros">Macro Targets & High-Protein Meal Plans</option>
+                  <option value="catering">Corporate / Family Meal Subscriptions</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage">Your Message / Dietary Note</label>
+                <textarea
+                  id="contactMessage"
+                  rows="4"
+                  placeholder="Tell us about food preferences, allergies, regional tastes, or calorie targets..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-contact-submit">
+                <span>Send Message to Dietitian Desk</span>
+                <ion-icon name="paper-plane-outline"></ion-icon>
+              </button>
+
+              <div class="contact-success-banner hidden" id="contactSuccessBanner">
+                <ion-icon name="checkmark-circle"></ion-icon>
+                <div>
+                  <strong>Message Sent Successfully!</strong>
+                  <p>Our dietitian desk will respond within 4 business hours.</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <div class="footer-grid">
+          <div class="footer-brand-col">
+            <a href="#home" class="nav-logo">
+              <span class="logo-icon-wrap"><ion-icon name="leaf"></ion-icon></span>
+              <span class="logo-text">Foodie<span class="logo-accent">Hub</span></span>
+            </a>
+            <p class="footer-bio">
+              Intelligent Indian food recommendation platform. Crafted with algorithmic precision, verified by certified clinical dietitians, cooked with authentic regional ingredients.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+              <a href="#" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+              <a href="#" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+              <a href="#" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+          </div>
+
+          <div class="footer-nav-col">
+            <h4 class="footer-heading">Platform</h4>
+            <ul>
+              <li><a href="#menu">Indian Menu</a></li>
+              <li><a href="#recipes">Regional Meal Kits</a></li>
+              <li><a href="#shop">Subscription Plans</a></li>
+              <li><a href="#about">Dietitian Board</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-col">
+            <h4 class="footer-heading">Nutrition Science</h4>
+            <ul>
+              <li><a href="#about">Macro Verification</a></li>
+              <li><a href="#about">Glycemic Index</a></li>
+              <li><a href="#about">Ayurvedic Ingredients</a></li>
+              <li><a href="#contact">Consult a Dietitian</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-col">
+            <h4 class="footer-heading">Company</h4>
+            <ul>
+              <li><a href="#about">Our Story</a></li>
+              <li><a href="#contact">Kitchen Locations</a></li>
+              <li><a href="#contact">Press & Media</a></li>
+              <li><a href="#contact">Careers (Hiring RDs)</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p class="copyright-text">
+            &copy; <span id="currentYear">2026</span> Foodie Hub, Inc. All rights reserved. &bull; Made with &hearts; for authentic healthy Indian cuisine.
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- END APP-CARD -->
+
+    <!-- =========================================================================
+         SLIDING CART SIDEBAR & OVERLAY
+         ========================================================================= -->
+    <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+    <aside class="cart-sidebar" id="cartSidebar" aria-label="Your Shopping Cart">
+      <div class="cart-header">
+        <div class="cart-header-title">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+          <h3>Your Fresh Cart (<span id="cartCountHeader">0</span>)</h3>
+        </div>
+        <button class="btn-close-cart" id="btnCloseCart" aria-label="Close cart">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <!-- Free shipping progress bar -->
+      <div class="free-shipping-bar">
+        <p class="shipping-msg" id="shippingMsg">Add more for Free Express Delivery!</p>
+        <div class="shipping-progress-track">
+          <div class="shipping-progress-fill" id="shippingProgressFill" style="width: 68%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Container -->
+      <div class="cart-body" id="cartItemsList">
+        <!-- Rendered by JS renderCart() -->
+      </div>
+
+      <!-- Empty Cart State -->
+      <div class="cart-empty-state hidden" id="cartEmptyState">
+        <div class="empty-icon-box">
+          <ion-icon name="nutrition-outline"></ion-icon>
+        </div>
+        <h4>Your cart is empty!</h4>
+        <p>Explore our dietitian-curated Indian dishes or ask our AI assistant for delicious recommendations.</p>
+        <a href="#menu" class="btn-start-shopping" id="btnExploreFromCart">Explore Menu</a>
+      </div>
+
+      <!-- Cart Footer & Checkout Summary -->
+      <div class="cart-footer" id="cartFooter">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Delivery</span>
+          <span id="cartDelivery">₹0</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Estimated Tax (GST 5%)</span>
+          <span id="cartTax">₹0</span>
+        </div>
+        <div class="cart-summary-row cart-total-row">
+          <span>Total</span>
+          <span class="total-amount" id="cartTotal">₹0</span>
+        </div>
+
+        <button class="btn-checkout" id="btnCheckout">
+          <span>Proceed to Checkout</span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =========================================================================
+         CHECKOUT SUCCESS MODAL
+         ========================================================================= -->
+    <div class="modal-overlay hidden" id="checkoutSuccessModal">
+      <div class="checkout-modal-content">
+        <div class="success-icon-bounce">
+          <ion-icon name="checkmark-done-circle"></ion-icon>
+        </div>
+        <h3>Order Placed Successfully!</h3>
+        <p class="order-id-text">Order Reference: <strong id="orderIdDisplay">#FH-849201</strong></p>
+        <p class="order-subtext">
+          Our culinary kitchen and assigned clinical dietitian are preparing your personalized fresh box. Check your email for real-time delivery tracking!
+        </p>
+        <button class="btn-done-modal" id="btnDoneCheckout">Continue Browsing</button>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         THEMEALDB RECIPE DETAILS MODAL
+         ========================================================================= -->
+    <div class="modal-overlay hidden" id="recipeModalOverlay" role="dialog" aria-modal="true" aria-labelledby="recipeModalTitle">
+      <div class="recipe-modal-dialog">
+        <button class="btn-close-modal btn-close-recipe-modal" id="btnCloseRecipeModal" aria-label="Close recipe details">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <div class="recipe-modal-scroll" id="recipeModalBody">
+          <!-- Dynamically populated with full recipe details -->
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         AI FOOD RECOMMENDATION ASSISTANT (FLOATING WIDGET)
+         ========================================================================= -->
+    <button class="btn-ai-chat-launcher" id="btnAiChatLauncher" aria-label="Open AI Meal Assistant">
+      <span class="ai-launcher-pulse"></span>
+      <ion-icon class="launcher-chat-icon" name="sparkles"></ion-icon>
+      <span class="launcher-tooltip">Ask Foodie Hub AI</span>
+    </button>
+
+    <div class="ai-chat-widget hidden" id="aiChatWindow" role="region" aria-label="AI Food Assistant">
+      <div class="chat-header">
+        <div class="chat-header-identity">
+          <div class="bot-avatar">
+            <ion-icon name="sparkles"></ion-icon>
+          </div>
+          <div>
+            <div class="bot-name-row">
+              <span class="bot-name">Foodie Hub AI</span>
+              <span class="bot-status-dot" title="Active"></span>
+            </div>
+            <span class="bot-mode-pill" id="aiModeIndicator">Demo Mode (Local Engine)</span>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="btn-header-action" id="btnClearChatHistory" title="Clear chat">
+            <ion-icon name="trash-outline"></ion-icon>
+          </button>
+          <button class="btn-header-action" id="btnCloseChatWidget" aria-label="Close assistant">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Suggestion Query Chips -->
+      <div class="chat-quick-suggestions">
+        <button class="chip-suggestion" data-prompt="Suggest a high protein meal with over 35g protein">
+          💪 High Protein (&gt;35g)
+        </button>
+        <button class="chip-suggestion" data-prompt="Show me authentic North Indian dishes">
+          🍛 North Indian Classics
+        </button>
+        <button class="chip-suggestion" data-prompt="What South Indian meals do you recommend?">
+          🥥 South Indian Flavors
+        </button>
+        <button class="chip-suggestion" data-prompt="Find a low calorie meal under 450 calories">
+          🔥 Low Calorie (&lt;450kcal)
+        </button>
+        <button class="chip-suggestion" data-prompt="What is a keto-friendly dietitian favorite?">
+          🩺 Dietitian Favorites
+        </button>
+      </div>
+
+      <!-- Messages Thread -->
+      <div class="chat-messages-container" id="chatMessagesContainer">
+        <!-- Default Welcome Message -->
+        <div class="chat-bubble chat-bubble--bot">
+          <div class="bubble-avatar"><ion-icon name="leaf"></ion-icon></div>
+          <div class="bubble-content">
+            <p>
+              Hello! I'm your <strong>Foodie Hub AI Assistant</strong>. Tell me what you're craving, your regional taste preferences (North Indian, South Indian), or your macro targets!
+            </p>
+            <p class="bubble-note">
+              <em>Example: &ldquo;Suggest a high protein vegetarian dish under 500 calories&rdquo; or &ldquo;Show me South Indian coastal seafood&rdquo;</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Input Area -->
+      <div class="chat-input-container">
+        <form id="chatForm" class="chat-input-form">
+          <input
+            type="text"
+            id="chatInput"
+            class="chat-text-input"
+            placeholder="Type your cravings or macro targets..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="btn-chat-send" id="btnChatSend" aria-label="Send message">
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

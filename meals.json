@@ -1,0 +1,210 @@
+[
+  {
+    "id": "paneer-tikka-masala",
+    "name": "Paneer Tikka Masala",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "high-protein",
+      "dietitian-pick"
+    ],
+    "region": "North Indian",
+    "price": 320,
+    "calories": 480,
+    "protein": 24,
+    "carbs": 22,
+    "fats": 32,
+    "fiber": 6,
+    "image": "img/meals/meal-1.jpg",
+    "dietitianApproved": true,
+    "description": "Char-grilled cottage cheese cubes simmered in a spiced tomato-fenugreek gravy infused with crushed coriander seeds and fresh ginger.",
+    "dietitianNotes": "Rich in slow-digesting casein protein and conjugated linoleic acid (CLA), paired with lycopene from slow-cooked tomatoes."
+  },
+  {
+    "id": "chana-masala",
+    "name": "High-Protein Chana Masala",
+    "category": [
+      "north-indian",
+      "vegan",
+      "high-protein",
+      "low-calorie",
+      "dietitian-pick"
+    ],
+    "region": "North Indian",
+    "price": 260,
+    "calories": 420,
+    "protein": 22,
+    "carbs": 58,
+    "fats": 12,
+    "fiber": 16,
+    "image": "img/meals/meal-2.jpg",
+    "dietitianApproved": true,
+    "description": "Slow-simmered organic Kabuli chickpeas cooked in an aromatic roasted cumin, amchur (dry mango), and ginger reduction.",
+    "dietitianNotes": "Outstanding 16g prebiotic dietary fiber profile that regulates blood glucose spikes and feeds beneficial gut Bifidobacteria."
+  },
+  {
+    "id": "palak-paneer",
+    "name": "Palak Paneer (Supergreens)",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "keto",
+      "low-calorie",
+      "dietitian-pick"
+    ],
+    "region": "North Indian",
+    "price": 290,
+    "calories": 410,
+    "protein": 20,
+    "carbs": 14,
+    "fats": 30,
+    "fiber": 8,
+    "image": "img/meals/meal-3.jpg",
+    "dietitianApproved": true,
+    "description": "Fresh tender spinach blanched and pureed with garlic, green chilies, and cold-pressed mustard oil, folded around soft artisanal paneer.",
+    "dietitianNotes": "Keto-friendly with high bioavailable non-heme iron, lutein, and magnesium to support cardiovascular health."
+  },
+  {
+    "id": "masala-dosa",
+    "name": "Crispy Masala Dosa with Sambar",
+    "category": [
+      "south-indian",
+      "vegan",
+      "low-calorie",
+      "dietitian-pick"
+    ],
+    "region": "South Indian",
+    "price": 220,
+    "calories": 380,
+    "protein": 12,
+    "carbs": 62,
+    "fats": 10,
+    "fiber": 9,
+    "image": "img/meals/meal-4.jpg",
+    "dietitianApproved": true,
+    "description": "Stone-ground fermented rice and urad dal crepe stuffed with spiced mustard-seed potatoes, served with drumstick sambar and fresh coconut chutney.",
+    "dietitianNotes": "Naturally fermented for 18 hours, providing live probiotics that enhance gut enzymatic efficiency and micronutrient absorption."
+  },
+  {
+    "id": "kerala-fish-curry",
+    "name": "Kerala Coconut Fish Curry",
+    "category": [
+      "south-indian",
+      "pescatarian",
+      "high-protein",
+      "dietitian-pick"
+    ],
+    "region": "South Indian",
+    "price": 380,
+    "calories": 460,
+    "protein": 38,
+    "carbs": 12,
+    "fats": 28,
+    "fiber": 5,
+    "image": "img/meals/meal-5.jpg",
+    "dietitianApproved": true,
+    "description": "Wild-caught kingfish steak gently simmered in fresh coconut milk, Kudampuli (Malabar tamarind), fresh curry leaves, and green chilies.",
+    "dietitianNotes": "Superb source of Omega-3 EPA/DHA fatty acids and medium-chain triglycerides (MCTs) for cognitive and metabolic support."
+  },
+  {
+    "id": "chicken-biryani",
+    "name": "Hyderabadi Dum Chicken Biryani",
+    "category": [
+      "south-indian",
+      "high-protein"
+    ],
+    "region": "South Indian",
+    "price": 390,
+    "calories": 590,
+    "protein": 42,
+    "carbs": 64,
+    "fats": 18,
+    "fiber": 6,
+    "image": "img/meals/meal-6.jpg",
+    "dietitianApproved": true,
+    "description": "Long-grain aged basmati rice layered with yogurt-marinated tender chicken, saffron threads, and mint, sealed and steamed in earthenware.",
+    "dietitianNotes": "Balanced complete animal protein combined with thermogenic warming spices including green cardamom, cinnamon, and whole cloves."
+  },
+  {
+    "id": "dal-makhani",
+    "name": "Slow-Cooked Dal Makhani",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "high-protein"
+    ],
+    "region": "North Indian",
+    "price": 270,
+    "calories": 440,
+    "protein": 19,
+    "carbs": 52,
+    "fats": 18,
+    "fiber": 14,
+    "image": "img/meals/meal-7.jpg",
+    "dietitianApproved": true,
+    "description": "Whole black urad lentils and red kidney beans simmered overnight for 16 hours over slow embers, finished with churned butter and kasuri methi.",
+    "dietitianNotes": "Rich in complex resistant starches that fuel short-chain fatty acid (SCFA) production in the human colon."
+  },
+  {
+    "id": "tandoori-soya-chaap",
+    "name": "Tandoori Soya Chaap Power Bowl",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "high-protein",
+      "dietitian-pick"
+    ],
+    "region": "North Indian",
+    "price": 310,
+    "calories": 470,
+    "protein": 40,
+    "carbs": 26,
+    "fats": 16,
+    "fiber": 11,
+    "image": "img/meals/meal-8.jpg",
+    "dietitianApproved": true,
+    "description": "High-protein soy protein ribbons marinated in Greek yogurt, Kashmiri deghi mirch, and roasted carom seeds, clay-oven roasted to perfection.",
+    "dietitianNotes": "An ultra-high-protein plant-based power bowl delivering 40g of complete amino acids for athletic lean muscle synthesis."
+  },
+  {
+    "id": "moong-dal-khichdi",
+    "name": "Moong Dal Khichdi & Spiced Kadhi",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "low-calorie",
+      "dietitian-pick"
+    ],
+    "region": "Ayurvedic / Comfort",
+    "price": 210,
+    "calories": 360,
+    "protein": 16,
+    "carbs": 56,
+    "fats": 8,
+    "fiber": 10,
+    "image": "img/meals/meal-9.jpg",
+    "dietitianApproved": true,
+    "description": "Split yellow moong dal and whole-grain rice tempered with pure A2 ghee, cumin, and hing, served with probiotic turmeric yogurt kadhi.",
+    "dietitianNotes": "Ayurvedic gut-healing benchmark: hypoallergenic, gentle on digestive tracts, and anti-inflammatory."
+  },
+  {
+    "id": "baingan-bharta",
+    "name": "Smoked Baingan Bharta & Phulka",
+    "category": [
+      "north-indian",
+      "vegan",
+      "low-calorie"
+    ],
+    "region": "North Indian",
+    "price": 240,
+    "calories": 320,
+    "protein": 10,
+    "carbs": 38,
+    "fats": 14,
+    "fiber": 12,
+    "image": "img/meals/meal-10.jpg",
+    "dietitianApproved": true,
+    "description": "Fire-roasted whole eggplant charred on open flame, mashed and sauteed with sweet onions, heirloom tomatoes, ginger, and green peas.",
+    "dietitianNotes": "Super-low calorie density with rich nasunin antioxidant content found in deep-purple eggplant skins."
+  }
+]
