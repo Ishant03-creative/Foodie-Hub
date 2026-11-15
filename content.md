@@ -1,140 +1,128 @@
-# Omnifood
+# FOODIE HUB
+## Project Documentation
 
-## About Omnifood
+### 1. Introduction
 
-We are a technology company first, but with a major focus on consumer well-being through a healthy diet. Most people are very busy with their jobs, family and friends, and other important activities, which doesn't leave much time for cooking. This might lead to a poor diet and lasting health consequences. We want to solve this problem by using an AI-centric approach. Users can use our app to select their diet and foods they like and dislike, and our AI algorithm will create a custom and individual weekly meal plan. But we don't stop there. We partner with restaurants and other cooking partners to actually cook and deliver all meals from the generated meal plans, in selected cities. All this will be packed up in a monthly subscription, where users can choose between receiving one or two meals per day, every single day of the month.
+Foodie Hub is a web-based food discovery and recipe exploration platform developed to make meal discovery easier and more interactive.
 
-## Branding
+The website allows users to browse different food items, explore their nutritional information, search for meals, and discover recipes. It combines an interactive user interface with locally stored meal data and external recipe API integration.
 
-Headline: A healthy meal delivered to your door, every single day
+### 2. Problem Statement
 
-Brand color: #e67e22
+With the growing number of food and recipe platforms, users often need to visit multiple websites to discover meals and understand their nutritional information.
 
-## Omnifood Website Content
+Finding meals according to specific preferences, such as high-protein or low-calorie options, can also be inconvenient.
 
-### Summary
+Foodie Hub aims to provide a single platform where users can explore meals, view nutritional information, and discover recipes through a simple and user-friendly interface.
 
-The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your personal tastes and nutritional needs. We have delivered 250,000+ meals last year!
+### 3. Objectives
 
-### Omnifood features
+The main objectives of Foodie Hub are:
 
-Never cook again!: Our subscriptions cover 365 days per year, even including major holidays.
-Local and organic: Our cooks only use local, fresh, and organic products to prepare your meals.
-No waste: All our partners only use reusable containers to package all your meals.
-Pause anytime: Going on vacation? Just pause your subscription, and we refund unused days.
+- To develop an interactive and user-friendly food discovery website.
+- To display different meals with relevant information.
+- To provide nutritional details such as calories, protein, carbohydrates, fats, and fibre.
+- To implement search and category-based filtering.
+- To provide shopping cart functionality.
+- To integrate an external recipe API.
+- To demonstrate practical frontend web development concepts.
 
-### How Omnifood works
+### 4. Technologies Used
 
-[Show big app images]
+**HTML5**
 
-**Your daily dose of health in 3 simple steps**
+Used to create the basic structure of the website, including navigation bars, sections, cards, forms, and other elements.
 
-Tell us what you like (and what not): Never again waste time thinking about what to eat! Omnifood AI will create a 100% personalized weekly meal plan just for you. It makes sure you get all the nutrients and vitamins you need, no matter what diet you follow!
+**CSS3**
 
-Approve your weekly meal plan: Once per week, approve the meal plan generated for you by Omnifood AI. You can change ingredients, swap entire meals, or even add your own recipes.
+Used for styling, layouts, colours, animations, typography, and responsive design.
 
-Receive meals at convenient time: Best chefs in town will cook your selected meal every day, and we will deliver it to your door whenever works best for you. You can change delivery schedule and address daily!
+**JavaScript**
 
-### Omnifood works with any diet
+Used to implement interactive features such as meal rendering, searching, filtering, cart operations, chatbot interactions, and API communication.
 
-Vegetarian
-Vegan
-Pescatarian
-Gluten-free
-Lactose-free
-Keto
-Paleo
-Low FODMAP
-Kid-friendly
+**JSON**
 
-### Sample meals
+Used to store the local meal catalogue separately from the main JavaScript code.
 
-**Omnifood AI chooses from 5,000+ recipes**
+**TheMealDB API**
 
-Meal 1: Japanese Gyozas
+Used as an external source for retrieving recipe-related information.
 
-- Category: Vegetarian
-- Calories: 650
-- NutriScore (Registered): 74
-- Average rating: 4.9
-- Number reviews: 537
+**Git and GitHub**
 
-Meal 2: Avocado Salad
+Used for source code management and version control.
 
-- Category: Vegan and Paleo
-- Calories: 400
-- NutriScore (Registered): 92
-- Average rating: 4.8
-- Number reviews: 441
+### 5. Main Modules
 
-### We offer a free sample meal
+#### 5.1 Home Page
 
-[Create simple form for users to sign up]
+The home page introduces Foodie Hub and provides navigation to the different sections of the website.
 
-Healthy, tasty and hassle-free meals are waiting for you. Start eating well today. You can cancel or pause anytime. And the first meal is on us!
+#### 5.2 Meal Catalogue
 
-### We have 2 pricing plans
+This module displays available meals with their images, descriptions, prices, and nutritional information.
 
-Prices include all applicable taxes. Users can cancel at any time.
+#### 5.3 Search and Filtering
 
-Starter: $399 per month
+Users can search for meals and filter them according to categories and nutritional preferences, such as high-protein and low-calorie meals.
 
-- 1 meal per day
-- Order times are between 11am and 9pm
-- Delivery is free
+#### 5.4 Shopping Cart
 
-Complete: $649 per month
+The shopping cart allows users to add meals, update quantities, remove items, and calculate the total price dynamically.
 
-- 2 meal2 per day
-- Order 24/7
-- Delivery is free
-- Get access to latest recipes
+#### 5.5 Recipe Exploration
 
-### Photo gallery
+This module uses TheMealDB API to explore external recipes and retrieve recipe-related information.
 
-[Use the 12 photos we provided]
+#### 5.6 Chatbot and Meal Recommendations
 
-### Customer testimonials
+The chatbot provides basic meal recommendations using locally implemented keyword-matching logic.
 
-[Photos of customers included]
+### 6. System Working
 
-Inexpensive, healthy and great-tasting meals, without even having to order manually! It feels truly magical. (Dave Bryson)
-The AI algorithm is crazy good, it chooses the right meals for me every time. It's amazing not to worry about food anymore! (Ben Hadley)
-Omnifood is a life saver! I just started a company, so there's no time for cooking. I couldn't live without my daily meals now! (Steve Miller)
-I got Omnifood for the whole family, and it frees up so much time! Plus, everything is organic and vegan and without plastic. (Hannah Smith)
+Foodie Hub follows a client-side web application architecture.
 
-### Section with logos of featured publications [see images]
+1. The browser loads the website through the main HTML file.
+2. CSS files control the appearance and responsive layout.
+3. JavaScript loads the local meal catalogue from `meals.json`.
+4. Meal information is dynamically displayed on the website.
+5. User interactions such as search, filters, and cart operations are handled through JavaScript.
+6. External recipe information can be retrieved through TheMealDB API.
 
-### Contact information
+### 7. System Architecture
 
-Address: 623 Harrison St., 2nd Floor, San Francisco, CA 94107
-Phone: 415-201-6370
-Email: hello@omnifood.com
+The project consists of three main layers:
 
-Social profiles: instagram, facebook, twitter [links to them not available yet]
+**Presentation Layer:** HTML and CSS are responsible for the structure, layout, and visual appearance of the website.
 
-### Additional links [links not available yet]
+**Application Logic Layer:** JavaScript manages user interactions, meal rendering, search, filtering, cart operations, and API requests.
 
-Create account
-Sign in
-iOS app
-Android app
-About Omnifood
-For Business
-Cooking partners
-Careers
-Recipe directory
-Help center
-Privacy & terms
+**Data Layer:** The local JSON file stores the main meal catalogue, while TheMealDB provides external recipe data.
 
-## Sections
+### 8. Limitations
 
-- Logo + Navigations
-- Hero section
-- Featured in
-- How it works
-- Meals (& list of diets )
-- Gallery + testimonials
-- Pricing + Features
-- CTA ( call to action )
-- Footer
+- The project currently uses a frontend-only architecture.
+- No backend server or database is implemented.
+- User login and authentication are not implemented.
+- Checkout functionality is a demonstration and does not process real payments or orders.
+- Contact form submissions are not connected to a backend.
+- The chatbot currently uses keyword-based local matching.
+- External API functionality depends on internet connectivity and API availability.
+
+### 9. Future Enhancements
+
+- Implement a backend using Node.js and Express.
+- Integrate a database for storing meals and user information.
+- Add secure user authentication.
+- Improve meal recommendations using AI-based services.
+- Integrate a real payment gateway.
+- Improve recipe discovery and nutritional data accuracy.
+
+### 10. Conclusion
+
+Foodie Hub demonstrates how frontend web technologies can be used to develop an interactive food discovery platform.
+
+The project combines meal browsing, nutritional information, search and filtering, shopping cart functionality, chatbot-based recommendations, and external recipe API integration.
+
+It provides practical experience in HTML, CSS, JavaScript, JSON, API integration, and version control. The project can be further enhanced through backend development, database integration, and advanced recommendation systems.
