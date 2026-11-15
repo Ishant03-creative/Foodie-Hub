@@ -1,20 +1,8 @@
 
 'use strict';
 
-/**
- * =========================================================================
- * 1. GLOBAL CONFIGURATION & API KEYS
- * =========================================================================
- * Optional OpenAI API Key for live ChatGPT chatbot interactions.
- * If empty or undefined, the assistant operates seamlessly in demo mode
- * using its built-in clinical dietitian rules engine.
- */
 const OPENAI_API_KEY = "";
 
-/**
- * Consistent Indian Rupee (INR) Currency Formatter
- * Uses JavaScript's Intl.NumberFormat with 'en-IN' locale for standard Indian currency presentation.
- */
 const inrFormatter = new Intl.NumberFormat('en-IN', {
   style: 'currency',
   currency: 'INR',
@@ -31,164 +19,185 @@ function formatINR(amount) {
  */
 const FALLBACK_MEALS_CATALOG = [
   {
-    id: "paneer-tikka-masala",
-    name: "Paneer Tikka Masala",
-    category: ["north-indian", "vegetarian", "high-protein", "dietitian-pick"],
-    region: "North Indian",
-    price: 320,
-    calories: 480,
-    protein: 24,
-    carbs: 22,
-    fats: 32,
-    fiber: 6,
-    image: "img/meals/meal-1.jpg",
-    dietitianApproved: true,
-    description: "Char-grilled cottage cheese cubes simmered in a spiced tomato-fenugreek gravy infused with crushed coriander seeds and fresh ginger.",
-    dietitianNotes: "Rich in slow-digesting casein protein and conjugated linoleic acid (CLA), paired with lycopene from slow-cooked tomatoes."
+    "id": "paneer-tikka-masala",
+    "name": "Paneer Tikka Masala",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "high-protein"
+    ],
+    "region": "North Indian",
+    "price": 320,
+    "calories": 480,
+    "protein": 24,
+    "carbs": 22,
+    "fats": 32,
+    "fiber": 6,
+    "image": "img/meals/meal-1.jpg",
+    "description": "Char-grilled cottage cheese cubes simmered in a spiced tomato-fenugreek gravy infused with crushed coriander seeds and fresh ginger."
   },
   {
-    id: "chana-masala",
-    name: "High-Protein Chana Masala",
-    category: ["north-indian", "vegan", "high-protein", "low-calorie", "dietitian-pick"],
-    region: "North Indian",
-    price: 260,
-    calories: 420,
-    protein: 22,
-    carbs: 58,
-    fats: 12,
-    fiber: 16,
-    image: "img/meals/meal-2.jpg",
-    dietitianApproved: true,
-    description: "Slow-simmered organic Kabuli chickpeas cooked in an aromatic roasted cumin, amchur (dry mango), and ginger reduction.",
-    dietitianNotes: "Outstanding 16g prebiotic dietary fiber profile that regulates blood glucose spikes and feeds beneficial gut Bifidobacteria."
+    "id": "chana-masala",
+    "name": "High-Protein Chana Masala",
+    "category": [
+      "north-indian",
+      "vegan",
+      "high-protein",
+      "low-calorie"
+    ],
+    "region": "North Indian",
+    "price": 260,
+    "calories": 420,
+    "protein": 22,
+    "carbs": 58,
+    "fats": 12,
+    "fiber": 16,
+    "image": "img/meals/meal-2.jpg",
+    "description": "Slow-simmered organic Kabuli chickpeas cooked in an aromatic roasted cumin, amchur (dry mango), and ginger reduction."
   },
   {
-    id: "palak-paneer",
-    name: "Palak Paneer (Supergreens)",
-    category: ["north-indian", "vegetarian", "keto", "low-calorie", "dietitian-pick"],
-    region: "North Indian",
-    price: 290,
-    calories: 410,
-    protein: 20,
-    carbs: 14,
-    fats: 30,
-    fiber: 8,
-    image: "img/meals/meal-3.jpg",
-    dietitianApproved: true,
-    description: "Fresh tender spinach blanched and pureed with garlic, green chilies, and cold-pressed mustard oil, folded around soft artisanal paneer.",
-    dietitianNotes: "Keto-friendly with high bioavailable non-heme iron, lutein, and magnesium to support cardiovascular health."
+    "id": "palak-paneer",
+    "name": "Palak Paneer (Supergreens)",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "keto",
+      "low-calorie"
+    ],
+    "region": "North Indian",
+    "price": 290,
+    "calories": 410,
+    "protein": 20,
+    "carbs": 14,
+    "fats": 30,
+    "fiber": 8,
+    "image": "img/meals/meal-3.jpg",
+    "description": "Fresh tender spinach blanched and pureed with garlic, green chilies, and cold-pressed mustard oil, folded around soft artisanal paneer."
   },
   {
-    id: "masala-dosa",
-    name: "Crispy Masala Dosa with Sambar",
-    category: ["south-indian", "vegan", "low-calorie", "dietitian-pick"],
-    region: "South Indian",
-    price: 220,
-    calories: 380,
-    protein: 12,
-    carbs: 62,
-    fats: 10,
-    fiber: 9,
-    image: "img/meals/meal-4.jpg",
-    dietitianApproved: true,
-    description: "Stone-ground fermented rice and urad dal crepe stuffed with spiced mustard-seed potatoes, served with drumstick sambar and fresh coconut chutney.",
-    dietitianNotes: "Naturally fermented for 18 hours, providing live probiotics that enhance gut enzymatic efficiency and micronutrient absorption."
+    "id": "masala-dosa",
+    "name": "Crispy Masala Dosa with Sambar",
+    "category": [
+      "south-indian",
+      "vegan",
+      "low-calorie"
+    ],
+    "region": "South Indian",
+    "price": 220,
+    "calories": 380,
+    "protein": 12,
+    "carbs": 62,
+    "fats": 10,
+    "fiber": 9,
+    "image": "img/meals/meal-4.jpg",
+    "description": "Stone-ground fermented rice and urad dal crepe stuffed with spiced mustard-seed potatoes, served with drumstick sambar and fresh coconut chutney."
   },
   {
-    id: "kerala-fish-curry",
-    name: "Kerala Coconut Fish Curry",
-    category: ["south-indian", "pescatarian", "high-protein", "dietitian-pick"],
-    region: "South Indian",
-    price: 380,
-    calories: 460,
-    protein: 38,
-    carbs: 12,
-    fats: 28,
-    fiber: 5,
-    image: "img/meals/meal-5.jpg",
-    dietitianApproved: true,
-    description: "Wild-caught kingfish steak gently simmered in fresh coconut milk, Kudampuli (Malabar tamarind), fresh curry leaves, and green chilies.",
-    dietitianNotes: "Superb source of Omega-3 EPA/DHA fatty acids and medium-chain triglycerides (MCTs) for cognitive and metabolic support."
+    "id": "kerala-fish-curry",
+    "name": "Kerala Coconut Fish Curry",
+    "category": [
+      "south-indian",
+      "pescatarian",
+      "high-protein"
+    ],
+    "region": "South Indian",
+    "price": 380,
+    "calories": 460,
+    "protein": 38,
+    "carbs": 12,
+    "fats": 28,
+    "fiber": 5,
+    "image": "img/meals/meal-5.jpg",
+    "description": "Wild-caught kingfish steak gently simmered in fresh coconut milk, Kudampuli (Malabar tamarind), fresh curry leaves, and green chilies."
   },
   {
-    id: "chicken-biryani",
-    name: "Hyderabadi Dum Chicken Biryani",
-    category: ["south-indian", "high-protein"],
-    region: "South Indian",
-    price: 390,
-    calories: 590,
-    protein: 42,
-    carbs: 64,
-    fats: 18,
-    fiber: 6,
-    image: "img/meals/meal-6.jpg",
-    dietitianApproved: true,
-    description: "Long-grain aged basmati rice layered with yogurt-marinated tender chicken, saffron threads, and mint, sealed and steamed in earthenware.",
-    dietitianNotes: "Balanced complete animal protein combined with thermogenic warming spices including green cardamom, cinnamon, and whole cloves."
+    "id": "chicken-biryani",
+    "name": "Hyderabadi Dum Chicken Biryani",
+    "category": [
+      "south-indian",
+      "high-protein"
+    ],
+    "region": "South Indian",
+    "price": 390,
+    "calories": 590,
+    "protein": 42,
+    "carbs": 64,
+    "fats": 18,
+    "fiber": 6,
+    "image": "img/meals/meal-6.jpg",
+    "description": "Long-grain aged basmati rice layered with yogurt-marinated tender chicken, saffron threads, and mint, sealed and steamed in earthenware."
   },
   {
-    id: "dal-makhani",
-    name: "Slow-Cooked Dal Makhani",
-    category: ["north-indian", "vegetarian", "high-protein"],
-    region: "North Indian",
-    price: 270,
-    calories: 440,
-    protein: 19,
-    carbs: 52,
-    fats: 18,
-    fiber: 14,
-    image: "img/meals/meal-7.jpg",
-    dietitianApproved: true,
-    description: "Whole black urad lentils and red kidney beans simmered overnight for 16 hours over slow embers, finished with churned butter and kasuri methi.",
-    dietitianNotes: "Rich in complex resistant starches that fuel short-chain fatty acid (SCFA) production in the human colon."
+    "id": "dal-makhani",
+    "name": "Slow-Cooked Dal Makhani",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "high-protein"
+    ],
+    "region": "North Indian",
+    "price": 270,
+    "calories": 440,
+    "protein": 19,
+    "carbs": 52,
+    "fats": 18,
+    "fiber": 14,
+    "image": "img/meals/meal-7.jpg",
+    "description": "Whole black urad lentils and red kidney beans simmered overnight for 16 hours over slow embers, finished with churned butter and kasuri methi."
   },
   {
-    id: "tandoori-soya-chaap",
-    name: "Tandoori Soya Chaap Power Bowl",
-    category: ["north-indian", "vegetarian", "high-protein", "dietitian-pick"],
-    region: "North Indian",
-    price: 310,
-    calories: 470,
-    protein: 40,
-    carbs: 26,
-    fats: 16,
-    fiber: 11,
-    image: "img/meals/meal-8.jpg",
-    dietitianApproved: true,
-    description: "High-protein soy protein ribbons marinated in Greek yogurt, Kashmiri deghi mirch, and roasted carom seeds, clay-oven roasted to perfection.",
-    dietitianNotes: "An ultra-high-protein plant-based power bowl delivering 40g of complete amino acids for athletic lean muscle synthesis."
+    "id": "tandoori-soya-chaap",
+    "name": "Tandoori Soya Chaap Power Bowl",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "high-protein"
+    ],
+    "region": "North Indian",
+    "price": 310,
+    "calories": 470,
+    "protein": 40,
+    "carbs": 26,
+    "fats": 16,
+    "fiber": 11,
+    "image": "img/meals/meal-8.jpg",
+    "description": "High-protein soy protein ribbons marinated in Greek yogurt, Kashmiri deghi mirch, and roasted carom seeds, clay-oven roasted to perfection."
   },
   {
-    id: "moong-dal-khichdi",
-    name: "Moong Dal Khichdi & Spiced Kadhi",
-    category: ["north-indian", "vegetarian", "low-calorie", "dietitian-pick"],
-    region: "Ayurvedic / Comfort",
-    price: 210,
-    calories: 360,
-    protein: 16,
-    carbs: 56,
-    fats: 8,
-    fiber: 10,
-    image: "img/meals/meal-9.jpg",
-    dietitianApproved: true,
-    description: "Split yellow moong dal and whole-grain rice tempered with pure A2 ghee, cumin, and hing, served with probiotic turmeric yogurt kadhi.",
-    dietitianNotes: "Ayurvedic gut-healing benchmark: hypoallergenic, gentle on digestive tracts, and anti-inflammatory."
+    "id": "moong-dal-khichdi",
+    "name": "Moong Dal Khichdi & Spiced Kadhi",
+    "category": [
+      "north-indian",
+      "vegetarian",
+      "low-calorie"
+    ],
+    "region": "Ayurvedic / Comfort",
+    "price": 210,
+    "calories": 360,
+    "protein": 16,
+    "carbs": 56,
+    "fats": 8,
+    "fiber": 10,
+    "image": "img/meals/meal-9.jpg",
+    "description": "Split yellow moong dal and whole-grain rice tempered with pure A2 ghee, cumin, and hing, served with probiotic turmeric yogurt kadhi."
   },
   {
-    id: "baingan-bharta",
-    name: "Smoked Baingan Bharta & Phulka",
-    category: ["north-indian", "vegan", "low-calorie"],
-    region: "North Indian",
-    price: 240,
-    calories: 320,
-    protein: 10,
-    carbs: 38,
-    fats: 14,
-    fiber: 12,
-    image: "img/meals/meal-10.jpg",
-    dietitianApproved: true,
-    description: "Fire-roasted whole eggplant charred on open flame, mashed and sauteed with sweet onions, heirloom tomatoes, ginger, and green peas.",
-    dietitianNotes: "Super-low calorie density with rich nasunin antioxidant content found in deep-purple eggplant skins."
+    "id": "baingan-bharta",
+    "name": "Smoked Baingan Bharta & Phulka",
+    "category": [
+      "north-indian",
+      "vegan",
+      "low-calorie"
+    ],
+    "region": "North Indian",
+    "price": 240,
+    "calories": 320,
+    "protein": 10,
+    "carbs": 38,
+    "fats": 14,
+    "fiber": 12,
+    "image": "img/meals/meal-10.jpg",
+    "description": "Fire-roasted whole eggplant charred on open flame, mashed and sauteed with sweet onions, heirloom tomatoes, ginger, and green peas."
   }
 ];
 
@@ -232,9 +241,9 @@ async function loadMeals() {
   }
 }
 
-// =========================================================================
+
 // 3. APPLICATION STATE
-// =========================================================================
+
 // Initialize cart with sample items (matching the "2" on reference image cart icon)
 let cartState = [
   { id: "paneer-tikka-masala", quantity: 1 },
@@ -244,9 +253,8 @@ let cartState = [
 let activeFilter = "all";
 let activeSearchQuery = "";
 
-// =========================================================================
 // 4. DOM ELEMENTS
-// =========================================================================
+
 // Navbar & Controls
 const navSearchInput = document.getElementById("menuSearchInput");
 const btnCartTrigger = document.getElementById("btnCartTrigger");
@@ -299,9 +307,9 @@ const chatForm = document.getElementById("chatForm");
 const chatInput = document.getElementById("chatInput");
 const aiModeIndicator = document.getElementById("aiModeIndicator");
 
-// =========================================================================
+
 // 5. INITIALIZATION
-// =========================================================================
+
 document.addEventListener("DOMContentLoaded", () => {
   initApp();
 });
@@ -330,9 +338,9 @@ function checkAiMode() {
   }
 }
 
-// =========================================================================
+
 // 6. MENU RENDERING & FILTERING
-// =========================================================================
+
 function renderMeals() {
   if (!mealsCatalogGrid) return;
 
@@ -341,7 +349,7 @@ function renderMeals() {
     mealsCatalogGrid.innerHTML = `
       <div style="grid-column: 1/-1; text-align: center; padding: 5rem 2rem;">
         <ion-icon name="sync-outline" style="font-size: 3.6rem; color: #71933e; margin-bottom: 1.2rem;"></ion-icon>
-        <p style="font-size: 1.6rem; color: #55674c;">Loading dietitian-verified Indian menu...</p>
+        <p style="font-size: 1.6rem; color: #55674c;">Loading authentic Indian culinary menu...</p>
       </div>
     `;
     return;
@@ -360,8 +368,7 @@ function renderMeals() {
       matchesCategory = meal.category.includes("south-indian");
     } else if (activeFilter === "vegetarian") {
       matchesCategory = meal.category.includes("vegetarian") || meal.category.includes("vegan");
-    } else if (activeFilter === "dietitian-pick") {
-      matchesCategory = meal.dietitianApproved === true;
+    
     } else if (activeFilter !== "all") {
       matchesCategory = meal.category.includes(activeFilter);
     }
@@ -387,7 +394,7 @@ function renderMeals() {
       menuResultsCount.textContent = `Showing ${filteredMeals.length} Indian dish${filteredMeals.length === 1 ? "" : "es"} for "${filterLabel}"`;
       if (btnClearFilters) btnClearFilters.classList.remove("hidden");
     } else {
-      menuResultsCount.textContent = `Showing all ${filteredMeals.length} dietitian-verified Indian dishes`;
+      menuResultsCount.textContent = `Showing all ${filteredMeals.length} authentic Indian dishes`;
       if (btnClearFilters) btnClearFilters.classList.add("hidden");
     }
   }
@@ -416,7 +423,7 @@ function renderMeals() {
             <img src="${meal.image}" alt="${meal.name}" loading="lazy" />
             <div class="card-badges-top">
               <span class="badge-diet-tag badge-diet-tag--${primaryCategory}">${displayCategory}</span>
-              ${meal.dietitianApproved ? '<span class="badge-dietitian-trust"><ion-icon name="shield-checkmark"></ion-icon> Dietitian Approved</span>' : ''}
+              
             </div>
           </div>
           <div class="card-content-wrap">
@@ -481,9 +488,9 @@ function resetFilters() {
   renderMeals();
 }
 
-// =========================================================================
+
 // 7. SHOPPING CART FUNCTIONALITY
-// =========================================================================
+
 function renderCart() {
   // If meals.json is not yet loaded, wait until loadMeals() finishes
   if (!isMealsLoaded && MEALS_CATALOG.length === 0) {
@@ -657,9 +664,9 @@ function animateCartBadge() {
   }, 400);
 }
 
-// =========================================================================
+
 // 8. AI FOOD RECOMMENDATION ASSISTANT (CHAT WIDGET & ENGINE)
-// =========================================================================
+
 function openAiChat() {
   if (aiChatWindow) {
     aiChatWindow.classList.remove("hidden");
@@ -725,13 +732,11 @@ async function callOpenAiAPI(userPrompt) {
       carbs: m.carbs,
       fats: m.fats,
       fiber: m.fiber,
-      dietitianApproved: m.dietitianApproved,
-      description: m.description,
-      dietitianNotes: m.dietitianNotes
+      description: m.description
     }))
   );
 
-  const systemPrompt = `You are Foodie Hub AI, an intelligent clinical dietitian assistant specializing in authentic Indian cuisine and precision macro nutrition.
+  const systemPrompt = `You are Foodie Hub AI, an intelligent culinary assistant specializing in authentic Indian cuisine, recipe discovery, and estimated macro nutrition.
 Here is our verified Indian meal catalog:
 ${catalogContext}
 
@@ -843,10 +848,10 @@ function runLocalIntelligentMatcher(userText) {
       rationale = "Char-grilled Paneer Tikka Masala is our North Indian crown jewel, providing 24g of protein with antioxidant-rich tomato and fenugreek.";
     }
   }
-  // 7. Default Dietitian Pick
+  // 7. Default Popular Pick
   else {
     matchedMeal = MEALS_CATALOG.find((m) => m.id === "paneer-tikka-masala");
-    rationale = "I recommend our dietitian favorite: Paneer Tikka Masala! It combines 24g of slow-digesting protein with roasted antioxidant spices, fully verified for balanced metabolic health.";
+    rationale = "I recommend our popular classic: Paneer Tikka Masala! It combines 24g of protein with roasted spices for a delicious and wholesome meal.";
   }
 
   // Safety fallback in case catalog is still loading
@@ -861,7 +866,7 @@ function runLocalIntelligentMatcher(userText) {
     };
   }
 
-  const responseText = `Here is your dietitian-verified Indian recommendation:\n\n**${matchedMeal.name}** (${matchedMeal.region})\n\n${rationale}\n\n*All macros are audited and certified for optimal nutritional balance.*`;
+  const responseText = `Here is your Indian meal recommendation:\n\n**${matchedMeal.name}** (${matchedMeal.region})\n\n${rationale}\n\n*Nutritional values are estimated for general awareness.*`;
 
   return { text: responseText, recommendedMeal: matchedMeal };
 }
@@ -944,9 +949,9 @@ function removeTypingIndicator(id) {
   if (el) el.remove();
 }
 
-// =========================================================================
+
 // 9. EVENT LISTENERS SETUP
-// =========================================================================
+
 function setupEventListeners() {
   // --- Cart Drawer Triggers ---
   if (btnCartTrigger) {
@@ -1071,7 +1076,7 @@ function setupEventListeners() {
   document.querySelectorAll(".btn-plan-select").forEach((btn) => {
     btn.addEventListener("click", () => {
       const planName = btn.getAttribute("data-plan") || "Custom Plan";
-      alert(`Thank you for selecting the ${planName}! Our clinical dietitian team will reach out to configure your meal schedule.`);
+      alert(`Thank you for selecting the ${planName}! Our culinary team will reach out to configure your meal schedule.`);
     });
   });
 
@@ -1117,9 +1122,9 @@ function setupEventListeners() {
   });
 }
 
-// =========================================================================
+
 // 10. THEMEALDB EXPLORE RECIPES & MODAL CONTROLLER
-// =========================================================================
+
 let currentExploreCategory = "All";
 let currentExploreQuery = "Chicken";
 

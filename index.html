@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Foodie Hub - Intelligent Indian food recommendation platform. Discover authentic North and South Indian regional meals tailored to your taste and verified by certified dietitians."
+      content="Foodie Hub - Intelligent Indian food discovery and recipe exploration platform. Discover authentic North and South Indian regional meals tailored to your taste with estimated nutritional awareness."
     />
     <link rel="icon" href="img/favicon.png" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
@@ -346,10 +346,10 @@
         <div class="section-header center-text">
           <span class="subheading-pill">Curated Indian Regional Plates</span>
           <h2 class="section-title">
-            Explore Our <span class="highlight">Dietitian-Approved</span> Indian Menu
+            Explore Our <span class="highlight">Authentic Indian</span> Menu
           </h2>
           <p class="section-subtitle">
-            Every dish is clinically analyzed with verified macro profiles for Calories, Protein, Carbohydrates, and Fats. Filter by cuisine region, high-protein content, or calorie limits.
+            Every dish features estimated nutritional profiles for Calories, Protein, Carbohydrates, and Fats. Filter by cuisine region, high-protein content, or calorie limits.
           </p>
         </div>
 
@@ -371,9 +371,6 @@
           <button class="btn-filter" data-filter="vegetarian">
             <ion-icon name="leaf-outline"></ion-icon> Vegetarian / Vegan
           </button>
-          <button class="btn-filter" data-filter="dietitian-pick">
-            <ion-icon name="ribbon-outline"></ion-icon> Dietitian Approved
-          </button>
         </div>
 
         <!-- Active Filter Indicator & Dish Count -->
@@ -388,18 +385,26 @@
         <div class="meals-catalog-grid" id="mealsCatalogGrid">
           <!-- Populated by JS renderMeals() -->
         </div>
+
+        <!-- Estimated Nutrition Disclaimer -->
+        <div class="nutrition-disclaimer-box">
+          <p>
+            <ion-icon name="information-circle-outline"></ion-icon>
+            The nutritional information displayed on Foodie Hub is estimated and provided for general informational purposes only. Actual values may vary depending on ingredients and preparation methods. This platform does not provide professional dietary or medical advice.
+          </p>
+        </div>
       </section>
 
-      <!-- 3. ABOUT SECTION & CERTIFIED DIETITIAN INTEGRATION -->
+      <!-- 3. ABOUT SECTION & CULINARY EXCELLENCE -->
       <section class="section-about" id="about">
         <div class="about-grid">
           <div class="about-text-col">
             <span class="subheading-pill">Why Foodie Hub?</span>
             <h2 class="section-title">
-              Where Intelligent AI Meets <span class="highlight">Clinical Indian Nutrition</span>
+              Where Intelligent AI Meets <span class="highlight">Authentic Indian Flavors</span>
             </h2>
             <p class="about-lead">
-              We bridge the gap between artificial intelligence and human medical trust. At Foodie Hub, all AI recommendations, portion calculations, and authentic Indian regional recipes are rigorously cross-verified by licensed Registered Dietitians (RDs) before appearing on your plate.
+              At Foodie Hub, we celebrate the rich traditions of authentic Indian regional cuisine, paired with estimated nutritional awareness and smart recipe discovery.
             </p>
 
             <div class="about-features-list">
@@ -409,17 +414,17 @@
                 </div>
                 <div class="feat-content">
                   <h4>Intelligent Macro Matching</h4>
-                  <p>Our recommendation engine maps your daily metabolic activity, glycemic targets, and dietary restrictions to build balanced regional Indian meal splits.</p>
+                  <p>Our recommendation engine maps your daily preferences and dietary goals to suggest balanced regional Indian meal combinations.</p>
                 </div>
               </div>
 
               <div class="about-feature-item">
                 <div class="feat-icon-box">
-                  <ion-icon name="medkit-outline"></ion-icon>
+                  <ion-icon name="restaurant-outline"></ion-icon>
                 </div>
                 <div class="feat-content">
-                  <h4>100% Dietitian Verified</h4>
-                  <p>Every single recipe, cold-pressed oil proportion, sodium ratio, and macro profile is clinically audited and signed off by certified Registered Dietitians.</p>
+                  <h4>Authentic Regional Recipes</h4>
+                  <p>Every recipe is thoughtfully crafted with traditional cooking methods, authentic spices, and balanced portions for everyday wholesome eating.</p>
                 </div>
               </div>
 
@@ -435,37 +440,37 @@
             </div>
           </div>
 
-          <!-- Dietitian Trust Spotlight Card -->
+          <!-- Culinary Spotlight Card -->
           <div class="about-card-col">
             <div class="dietitian-spotlight-card">
               <div class="dietitian-badge-ribbon">
                 <ion-icon name="shield-checkmark"></ion-icon>
-                <span>Dietitian Approved</span>
+                <span>Chef Curated</span>
               </div>
               <div class="dietitian-avatar-wrap">
                 <img
                   src="img/customers/hannah.jpg"
-                  alt="Certified Clinical Dietitian Dr. Ananya Sharma"
+                  alt="Culinary Specialist Chef Ananya Sharma"
                   class="dietitian-avatar"
                 />
               </div>
-              <h3 class="dietitian-name">Dr. Ananya Sharma, MS, RD</h3>
-              <p class="dietitian-title">Lead Clinical Nutritionist & Ayurvedic Researcher</p>
+              <h3 class="dietitian-name">Chef Ananya Sharma</h3>
+              <p class="dietitian-title">Culinary Director & Indian Food Specialist</p>
               <div class="dietitian-quote">
-                &ldquo;Indian regional cuisine is inherently medicinal&mdash;from turmeric curcumin and fenugreek seeds to fermented probiotics in dosas. Foodie Hub's AI preserves that culinary heritage while keeping your exact macros clinically optimized.&rdquo;
+                &ldquo;Indian regional cuisine is inherently wholesome&mdash;from turmeric and ginger to aromatic spices and fermented dosas. Foodie Hub preserves that culinary heritage while keeping nutritional awareness accessible to everyone.&rdquo;
               </div>
               <div class="dietitian-stats-row">
                 <div class="d-stat">
                   <span class="d-val">50+</span>
-                  <span class="d-lbl">Certified Dietitians</span>
+                  <span class="d-lbl">Curated Recipes</span>
                 </div>
                 <div class="d-stat">
                   <span class="d-val">100%</span>
-                  <span class="d-lbl">Clinically Audited</span>
+                  <span class="d-lbl">Fresh Ingredients</span>
                 </div>
                 <div class="d-stat">
                   <span class="d-val">4.9 &starf;</span>
-                  <span class="d-lbl">Dietitian Rating</span>
+                  <span class="d-lbl">User Rating</span>
                 </div>
               </div>
             </div>
@@ -560,10 +565,10 @@
         <!-- Cook Kits Showcase (Preserves existing meal kits) -->
         <div class="cook-kits-divider">
           <div class="cook-kits-header center-text">
-            <span class="subheading-pill">Chef & Dietitian Cook Kits</span>
+            <span class="subheading-pill">Chef-Curated Cook Kits</span>
             <h3 class="cook-kits-title">Prefer Ready-to-Cook Regional Kits?</h3>
             <p class="cook-kits-subtitle">
-              Pre-portioned organic ingredients, fresh ground masala packets, and step-by-step dietitian cooking cards delivered right to your door.
+              Pre-portioned organic ingredients, fresh ground masala packets, and step-by-step cooking cards delivered right to your door.
             </p>
           </div>
 
@@ -644,13 +649,13 @@
                 <span class="price-val">1,499</span>
                 <span class="frequency">/ week</span>
               </div>
-              <p class="plan-desc">Perfect for busy professionals seeking 4 dietitian-crafted Indian dinners per week.</p>
+              <p class="plan-desc">Perfect for busy professionals seeking 4 chef-crafted Indian dinners per week.</p>
             </div>
             <ul class="plan-perks-list">
               <li><ion-icon name="checkmark-circle"></ion-icon> 4 Fresh chef-prepared meals</li>
               <li><ion-icon name="checkmark-circle"></ion-icon> AI smart macro recommendations</li>
               <li><ion-icon name="checkmark-circle"></ion-icon> Free insulated zero-waste delivery</li>
-              <li><ion-icon name="checkmark-circle"></ion-icon> Weekly dietitian review of chosen meals</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Weekly recipe recommendations</li>
             </ul>
             <button class="btn-plan-select" data-plan="Essential Discovery (₹1,499/wk)">Choose Essential</button>
           </div>
@@ -670,7 +675,7 @@
             <ul class="plan-perks-list">
               <li><ion-icon name="checkmark-circle"></ion-icon> 8 Personalized daily meals</li>
               <li><ion-icon name="checkmark-circle"></ion-icon> 24/7 AI Meal Discovery Chatbot</li>
-              <li><ion-icon name="checkmark-circle"></ion-icon> Monthly 1-on-1 dietitian review</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Monthly personalized meal ideas</li>
               <li><ion-icon name="checkmark-circle"></ion-icon> Priority regional Indian recipe kit access</li>
               <li><ion-icon name="checkmark-circle"></ion-icon> Free express insulated drop-off</li>
             </ul>
@@ -691,7 +696,7 @@
             <ul class="plan-perks-list">
               <li><ion-icon name="checkmark-circle"></ion-icon> 14 Balanced multi-portion plates</li>
               <li><ion-icon name="checkmark-circle"></ion-icon> Mild spice & kid-friendly options</li>
-              <li><ion-icon name="checkmark-circle"></ion-icon> Dedicated clinical dietitian contact</li>
+              <li><ion-icon name="checkmark-circle"></ion-icon> Priority customer support</li>
               <li><ion-icon name="checkmark-circle"></ion-icon> Weekend thali party specials</li>
             </ul>
             <button class="btn-plan-select" data-plan="Family Table (₹3,999/wk)">Choose Family</button>
@@ -746,7 +751,7 @@
               <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
             </div>
             <p class="t-text">
-              &ldquo;The AI assistant instantly recommends dishes under 450 calories that suit my vegetarian diet. Knowing each dish has a verified dietitian stamp gives me 100% peace of mind.&rdquo;
+              &ldquo;The AI assistant instantly recommends dishes under 450 calories that suit my vegetarian diet. Knowing the estimated macros helps me plan my meals with peace of mind.&rdquo;
             </p>
             <div class="t-author">
               <img src="img/customers/steve.jpg" alt="Steve" class="t-author-img" />
@@ -759,16 +764,16 @@
         </div>
       </section>
 
-      <!-- 7. CONTACT & DIETITIAN CONSULT SECTION -->
+      <!-- 7. CONTACT & SUPPORT SECTION -->
       <section class="section-contact" id="contact">
         <div class="contact-box-grid">
           <div class="contact-info-col">
             <span class="subheading-pill">Direct Clinical Access</span>
             <h2 class="section-title">
-              Have Questions? Speak to Our <span class="highlight">Dietitian Desk</span>
+              Have Questions? Speak to Our <span class="highlight">Culinary Desk</span>
             </h2>
             <p class="contact-desc">
-              Whether you need personalized guidance on managing diabetes with Indian cuisine or adjusting macros for athletic training, our licensed dietitians are here to help.
+              Whether you need guidance on regional Indian ingredients or suggestions for balanced meal planning, our culinary team is here to help.
             </p>
 
             <div class="contact-details-list">
@@ -776,7 +781,7 @@
                 <ion-icon name="mail-outline"></ion-icon>
                 <div>
                   <strong>Email Clinical Team</strong>
-                  <a href="mailto:dietitians@foodiehub.ai">dietitians@foodiehub.ai</a>
+                  <a href="mailto:support@foodiehub.ai">support@foodiehub.ai</a>
                 </div>
               </div>
 
@@ -814,7 +819,7 @@
               <div class="form-group">
                 <label for="contactTopic">Inquiry Category</label>
                 <select id="contactTopic">
-                  <option value="dietitian">Personalized Dietitian Review</option>
+                  <option value="recipe">Custom Recipe Question</option>
                   <option value="allergy">Food Allergies / Celiac / Dairy-Free</option>
                   <option value="macros">Macro Targets & High-Protein Meal Plans</option>
                   <option value="catering">Corporate / Family Meal Subscriptions</option>
@@ -832,7 +837,7 @@
               </div>
 
               <button type="submit" class="btn-contact-submit">
-                <span>Send Message to Dietitian Desk</span>
+                <span>Send Message to Culinary Desk</span>
                 <ion-icon name="paper-plane-outline"></ion-icon>
               </button>
 
@@ -840,7 +845,7 @@
                 <ion-icon name="checkmark-circle"></ion-icon>
                 <div>
                   <strong>Message Sent Successfully!</strong>
-                  <p>Our dietitian desk will respond within 4 business hours.</p>
+                  <p>Our culinary support team will respond within 24 hours.</p>
                 </div>
               </div>
             </form>
@@ -857,7 +862,7 @@
               <span class="logo-text">Foodie<span class="logo-accent">Hub</span></span>
             </a>
             <p class="footer-bio">
-              Intelligent Indian food recommendation platform. Crafted with algorithmic precision, verified by certified clinical dietitians, cooked with authentic regional ingredients.
+              Intelligent Indian food discovery platform. Crafted with algorithmic precision, authentic regional recipes, and estimated nutritional awareness.
             </p>
             <div class="footer-socials">
               <a href="#" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
@@ -873,7 +878,7 @@
               <li><a href="#menu">Indian Menu</a></li>
               <li><a href="#recipes">Regional Meal Kits</a></li>
               <li><a href="#shop">Subscription Plans</a></li>
-              <li><a href="#about">Dietitian Board</a></li>
+              <li><a href="#about">Our Culinary Story</a></li>
             </ul>
           </div>
 
@@ -883,7 +888,7 @@
               <li><a href="#about">Macro Verification</a></li>
               <li><a href="#about">Glycemic Index</a></li>
               <li><a href="#about">Ayurvedic Ingredients</a></li>
-              <li><a href="#contact">Consult a Dietitian</a></li>
+              <li><a href="#contact">Contact Support</a></li>
             </ul>
           </div>
 
@@ -893,12 +898,15 @@
               <li><a href="#about">Our Story</a></li>
               <li><a href="#contact">Kitchen Locations</a></li>
               <li><a href="#contact">Press & Media</a></li>
-              <li><a href="#contact">Careers (Hiring RDs)</a></li>
+              <li><a href="#contact">Careers</a></li>
             </ul>
           </div>
         </div>
 
         <div class="footer-bottom-bar">
+                    <p class="disclaimer-text-footer">
+            <strong>Nutrition Disclaimer:</strong> The nutritional information displayed on Foodie Hub is estimated and provided for general informational purposes only. Actual values may vary depending on ingredients and preparation methods. This platform does not provide professional dietary or medical advice.
+          </p>
           <p class="copyright-text">
             &copy; <span id="currentYear">2026</span> Foodie Hub, Inc. All rights reserved. &bull; Made with &hearts; for authentic healthy Indian cuisine.
           </p>
@@ -907,9 +915,9 @@
     </div>
     <!-- END APP-CARD -->
 
-    <!-- =========================================================================
+    <!-- 
          SLIDING CART SIDEBAR & OVERLAY
-         ========================================================================= -->
+          -->
     <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
     <aside class="cart-sidebar" id="cartSidebar" aria-label="Your Shopping Cart">
       <div class="cart-header">
@@ -941,7 +949,7 @@
           <ion-icon name="nutrition-outline"></ion-icon>
         </div>
         <h4>Your cart is empty!</h4>
-        <p>Explore our dietitian-curated Indian dishes or ask our AI assistant for delicious recommendations.</p>
+        <p>Explore our curated Indian dishes or ask our AI assistant for delicious recommendations.</p>
         <a href="#menu" class="btn-start-shopping" id="btnExploreFromCart">Explore Menu</a>
       </div>
 
@@ -971,9 +979,9 @@
       </div>
     </aside>
 
-    <!-- =========================================================================
+    <!-- 
          CHECKOUT SUCCESS MODAL
-         ========================================================================= -->
+          -->
     <div class="modal-overlay hidden" id="checkoutSuccessModal">
       <div class="checkout-modal-content">
         <div class="success-icon-bounce">
@@ -982,15 +990,15 @@
         <h3>Order Placed Successfully!</h3>
         <p class="order-id-text">Order Reference: <strong id="orderIdDisplay">#FH-849201</strong></p>
         <p class="order-subtext">
-          Our culinary kitchen and assigned clinical dietitian are preparing your personalized fresh box. Check your email for real-time delivery tracking!
+          Our culinary kitchen is preparing your personalized fresh box. Check your email for real-time delivery tracking!
         </p>
         <button class="btn-done-modal" id="btnDoneCheckout">Continue Browsing</button>
       </div>
     </div>
 
-    <!-- =========================================================================
+    <!-- 
          THEMEALDB RECIPE DETAILS MODAL
-         ========================================================================= -->
+          -->
     <div class="modal-overlay hidden" id="recipeModalOverlay" role="dialog" aria-modal="true" aria-labelledby="recipeModalTitle">
       <div class="recipe-modal-dialog">
         <button class="btn-close-modal btn-close-recipe-modal" id="btnCloseRecipeModal" aria-label="Close recipe details">
@@ -1003,9 +1011,9 @@
       </div>
     </div>
 
-    <!-- =========================================================================
+    <!-- 
          AI FOOD RECOMMENDATION ASSISTANT (FLOATING WIDGET)
-         ========================================================================= -->
+          -->
     <button class="btn-ai-chat-launcher" id="btnAiChatLauncher" aria-label="Open AI Meal Assistant">
       <span class="ai-launcher-pulse"></span>
       <ion-icon class="launcher-chat-icon" name="sparkles"></ion-icon>
@@ -1050,8 +1058,8 @@
         <button class="chip-suggestion" data-prompt="Find a low calorie meal under 450 calories">
           🔥 Low Calorie (&lt;450kcal)
         </button>
-        <button class="chip-suggestion" data-prompt="What is a keto-friendly dietitian favorite?">
-          🩺 Dietitian Favorites
+        <button class="chip-suggestion" data-prompt="What is a popular high-protein dish?">
+          🌟 High-Protein Picks
         </button>
       </div>
 

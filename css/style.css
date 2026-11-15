@@ -2293,6 +2293,41 @@ body {
   color: var(--text-light);
 }
 
+/* Nutrition Awareness Disclaimer Boxes */
+.nutrition-disclaimer-box {
+  margin-top: 3.2rem;
+  padding: 1.6rem 2.4rem;
+  background-color: rgba(113, 147, 62, 0.08);
+  border: 1px solid rgba(113, 147, 62, 0.22);
+  border-radius: 1.2rem;
+  text-align: center;
+}
+
+.nutrition-disclaimer-box p {
+  font-size: 1.3rem;
+  color: #55674c;
+  line-height: 1.6;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.nutrition-disclaimer-box ion-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.disclaimer-text-footer {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 84rem;
+  margin: 0 auto 1.6rem auto;
+}
+
 /* =========================================================================
    SLIDING CART DRAWER & OVERLAY
    ========================================================================= */

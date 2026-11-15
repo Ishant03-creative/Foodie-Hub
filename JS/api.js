@@ -1,7 +1,7 @@
 /**
- * =========================================================================
+ 
  * THEMEALDB API SERVICE MODULE (JS/api.js)
- * =========================================================================
+ 
  * Provides clean, reusable asynchronous functions to communicate with
  * TheMealDB public REST API (Free Developer API Key: "1").
  *
@@ -15,7 +15,7 @@
  *   4. getMealCategories()           - List all available food categories
  *   5. filterMealsByCategory(cat)    - Filter recipes by specific category
  *   6. extractIngredients(meal)      - Dynamically pairs ingredients & measures
- * =========================================================================
+ 
  */
 
 'use strict';
